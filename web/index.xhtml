@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <!--<f:view>
+      <h:outputLabel value="Hello, Adrian"/>
+   </f:view>-->
+<h:body>
+   <h:form>
+      <h:dataTable var="uzytkownik"
+                   value="#{komponentSesyjny.uzytkownicy}" >
+         <h:column>
+            <f:facet name="header">
+               <h:outputText value="Id" />
+            </f:facet>
+            <h:outputText value="#{uzytkownik.idUzytkownika}" />
+         </h:column>
+
+         <h:column>
+            <f:facet name="header">
+               <h:outputText value="Nazwa" />
+            </f:facet>
+            <h:outputText
+                    value="#{uzytkownik.nazwaUzytkownika}" />
+         </h:column>
+         <h:column>
+            <f:facet name="header">
+               <h:outputText value="Hasło" />
+            </f:facet>
+            <h:outputText value="#{uzytkownik.haslo}" />
+         </h:column>
+         <h:column>
+            <f:facet name="header">
+               <h:outputText value="e-mail" />
+            </f:facet>
+            <h:outputText value="#{uzytkownik.adresEmail}" />
+         </h:column>
+         <h:column>
+            <h:commandButton
+                    action="#{komponentSesyjny.editUser}"
+                    value="Edytuj" />
+            <h:commandButton
+                    action="#{komponentSesyjny.deleteUser}"
+                    value="Usuń" />
+         </h:column>
+      </h:dataTable>
+      <h:commandButton action="#{komponentSesyjny.addUser}"
+                       value="Dodaj" />
+   </h:form>
+</h:body>
+</html>
